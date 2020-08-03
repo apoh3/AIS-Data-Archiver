@@ -1,0 +1,93 @@
+
+
+        // Create a map object and specify the DOM element for display.
+        //var shipLocation = {lat: 31.34135, lng: 121.64690};
+        
+        var lat = [];
+        var lng = [];
+        var l = flightPlanCoordinates.length - 1;
+
+        lat[0] = flightPlanCoordinates[0].lat;
+        lng[0] = flightPlanCoordinates[0].lng;
+        lat[1] = flightPlanCoordinates[l].lat;
+        lng[1] = flightPlanCoordinates[l].lng;
+
+        
+        var shipLocation = {lat: lat[0], lng: lng[0]};
+        
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: shipLocation,
+          zoom: 8
+        });
+
+            for(var i = 0; i<=lat.length;i++)
+            {
+                var latLng = new google.maps.LatLng(lat[i],lng[i]);
+                var shipMarker = new google.maps.Marker({
+                    position: latLng,
+                    animation: google.maps.Animation.DROP,
+                    map: map
+                });
+            };
+
+
+        var lineSymbol = {
+          path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW
+        };
+
+        var flightPath = new google.maps.Polyline({
+          path: flightPlanCoordinates,
+          geodesic: true,
+          strokeColor: '#FF0000',
+          strokeOpacity: 1.0,
+          strokeWeight: 2,
+          icons: [{
+            icon: lineSymbol,
+            offset: '100%'
+          }, 
+          {icon: lineSymbol,
+            offset: '80%'}, 
+          {icon: lineSymbol,
+            offset: '60%'}, 
+          {icon: lineSymbol,
+            offset: '40%'},
+	{icon: lineSymbol,
+            offset: '20%'},
+	{icon: lineSymbol,
+            offset: '0%'}]
+        });
+            
+
+        flightPath.setMap(map);
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+                
+        shipMarker.addListener('mouseover', function() {
+          infowindow.open(map, shipMarker);
+          infowindow.setPosition(shipLocation);
+        });
+
+        shipMarker.addListener('mouseout', function() {
+          infowindow.close(map, shipMarker);
+        });
+
+        flightPath.addListener('mouseover', function() {
+          infowindow.open(map, shipMarker);
+          infowindow.setPosition(shipLocation);
+        });
+
+        flightPath.addListener('mouseout', function() {
+          infowindow.close(map, shipMarker);
+        });
+
+    //     map.data.loadGeoJson('//Users/doncaouette/Google Drive/UMASSD/Fall 2017/498 Senior Design/CIS 498 - AIS Data Archiver/Extreme Programming/Code files/google.json');
+       }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXTzk4v-E9NyJvPq9EPzrG6-wHcgJOCLc&callback=initMap"
+    async defer></script>
+  </body>
+</html>

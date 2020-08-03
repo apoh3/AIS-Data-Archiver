@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #map {
+            height: 100%;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #panel {
+            position: absolute;
+            top: 0px;
+            left: 25%;
+            z-index: 5;
+            background-color: #fff;
+            padding: 5px;
+            border: 1px solid #999;
+            text-align: center;
+            font-family: 'Calibri';
+            line-height: 30px;
+            padding-left: 10px;
+            width: 50%;
+        }
+
+        #panel {
+            background-color: #fff;
+            border: 1px solid #999;
+            left: 25%;
+            padding: 5px;
+            position: absolute;
+            top: 0px;
+            z-index: 5;
+        }
+
+
+        #panel2 {
+            position: absolute;
+            bottom: 0px;
+            left: 37.5%;
+            z-index: 5;
+            background-color: #fff;
+            padding: 5px;
+            border: 1px solid #999;
+            text-align: left;
+            font-family: 'Roboto', 'sans-serif';
+            line-height: 30px;
+            padding-left: 10px;
+            width: 25%;
+        }
+
+        #panel2 {
+            background-color: #fff;
+            border: 1px solid #999;
+            left: 37.5%;
+            padding: 5px;
+            position: absolute;
+            bottom: 0px;
+            z-index: 5;
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="map"></div>
+
+
+    <script>
+
+        var flightPath;
+        var shipMarker = [];
+        var flightPlanCoordinates = [];
+
+        function initMap() {
+            flightPlanCoordinates = [
+            { lat: 50, lng: -1 },
+{ lat: 56, lng: 10 },
+{ lat: 51, lng: -5 },
+{ lat: 56, lng: 11 },
+{ lat: 53, lng: 5 },
+{ lat: 1, lng: 103 },
+{ lat: 29, lng: -94 },
+{ lat: 31, lng: 120 },
+{ lat: 1, lng: 103 },
+{ lat: 1, lng: 103 },
+{ lat: 50, lng: 0 },
+{ lat: 23, lng: 119 },
+{ lat: 52, lng: 4 },
+{ lat: 29, lng: -95 },
+{ lat: 24, lng: 117 },
+{ lat: 35, lng: -122 },
+{ lat: 55, lng: -1 },
+{ lat: 51, lng: 5 },
+{ lat: 36, lng: -8 },
+{ lat: 36, lng: -76 },
+{ lat: 30, lng: -94 },
+{ lat: 31, lng: 121 },
+{ lat: 31, lng: 31 },
+{ lat: 40, lng: 14 },
+{ lat: 67, lng: 13 },
+{ lat: 30, lng: -94 },
+{ lat: 51, lng: 4 },
+{ lat: 36, lng: -76 },
+{ lat: 31, lng: 121 },
+{ lat: 1, lng: 103 },
+{ lat: 46, lng: -2 },
+{ lat: 53, lng: 7 },
+{ lat: 53, lng: 5 },
+{ lat: 35, lng: 25 },
+{ lat: 45, lng: 36 },
+{ lat: 30, lng: 122 },
+{ lat: 1, lng: 104 },
+{ lat: 1, lng: 103 },
+{ lat: 44, lng: 14 },
+{ lat: 51, lng: 7 },
+{ lat: 35, lng: -5 },
+{ lat: 43, lng: -1 },
+{ lat: 1, lng: 103 },
+{ lat: 44, lng: 21 },
+{ lat: 31, lng: 122 },
+{ lat: 26, lng: -80 },
+{ lat: 37, lng: 121 },
+{ lat: 33, lng: 130 },
+{ lat: 44, lng: 30 },
+{ lat: 52, lng: 6 },
+{ lat: 30, lng: 122 },
+{ lat: 1, lng: 103 },
+{ lat: 34, lng: 136 },
+{ lat: 43, lng: -3 },
+{ lat: 52, lng: 4 },
+{ lat: 43, lng: -1 },
+{ lat: -27, lng: 153 },
+{ lat: 1, lng: 103 },
+{ lat: 37, lng: -1 },
+{ lat: 51, lng: 6 },
+{ lat: 69, lng: 17 },
+{ lat: 43, lng: 7 },
+{ lat: 52, lng: 3 },
+{ lat: -22, lng: 166 },
+{ lat: 1, lng: 103 },
+{ lat: 18, lng: -63 },
+{ lat: 55, lng: 7 },
+{ lat: 31, lng: -80 },
+{ lat: 59, lng: 20 },
+{ lat: 34, lng: 131 },
+{ lat: 24, lng: 118 },
+{ lat: 15, lng: -61 },
+{ lat: 58, lng: -3 },
+{ lat: 31, lng: 121 },
+{ lat: 38, lng: 1 },
+{ lat: 29, lng: -95 },
+{ lat: 38, lng: 121 },
+{ lat: -23, lng: -46 },
+{ lat: 52, lng: 4 },
+{ lat: 51, lng: 6 },
+{ lat: 45, lng: 30 },
+{ lat: 22, lng: 120 },
+{ lat: 51, lng: -6 },
+{ lat: 31, lng: 121 },
+{ lat: 31, lng: 31 },
+{ lat: 40, lng: 25 },
+{ lat: 34, lng: 139 },
+{ lat: 1, lng: 104 },
+{ lat: 31, lng: 121 },
+{ lat: 30, lng: -90 },
+{ lat: 51, lng: 4 },
+{ lat: 24, lng: 118 },
+{ lat: 44, lng: 38 },
+{ lat: 44, lng: -68 },
+{ lat: 43, lng: 4 },
+{ lat: 47, lng: -3 },
+{ lat: 52, lng: 4 },
+{ lat: 1, lng: 103 },
+{ lat: 45, lng: 36 },
+{ lat: 36, lng: -5 },
+{ lat: -27, lng: 153 },
+{ lat: 38, lng: 24 },
+{ lat: 31, lng: 121 },
+{ lat: 32, lng: 31 },
+{ lat: 47, lng: -2 },
+{ lat: 59, lng: 19 },
+{ lat: 51, lng: 4 },
+{ lat: -27, lng: 153 },
+{ lat: 51, lng: 6 },
+{ lat: 45, lng: 36 },
+{ lat: 46, lng: -1 },
+{ lat: 55, lng: -1 },
+{ lat: -27, lng: 153 },
+{ lat: 1, lng: 103 },
+{ lat: 59, lng: 23 },
+{ lat: 1, lng: 103 },
+{ lat: 32, lng: 120 },
+{ lat: 31, lng: -81 },
+{ lat: 35, lng: 139 },
+{ lat: -7, lng: 112 },
+{ lat: 30, lng: -93 },
+{ lat: 31, lng: 121 },
+{ lat: 52, lng: 3 },
+{ lat: 55, lng: -1 },
+{ lat: 50, lng: -4 },
+{ lat: 47, lng: -2 },
+{ lat: 51, lng: 5 },
+{ lat: 24, lng: 118 },
+{ lat: 63, lng: 9 },
+{ lat: 55, lng: 15 },
+{ lat: 52, lng: -5 },
+{ lat: 31, lng: 121 },
+{ lat: 33, lng: -118 },
+{ lat: 50, lng: 7 },
+{ lat: 22, lng: 120 },
+{ lat: 33, lng: -118 },
+{ lat: 43, lng: 7 },
+{ lat: 49, lng: -5 },
+{ lat: 52, lng: 4 },
+{ lat: 24, lng: 118 },
+{ lat: 40, lng: 141 },
+{ lat: -1, lng: -48 },
+{ lat: 57, lng: 11 },
+{ lat: 44, lng: 22 },
+{ lat: 1, lng: 103 },
+{ lat: 51, lng: 2 },
+{ lat: 31, lng: 32 },
+{ lat: 38, lng: -76 },
+{ lat: 29, lng: -92 },
+{ lat: 51, lng: 2 },
+{ lat: 22, lng: 114 },
+{ lat: 38, lng: -9 },
+{ lat: 58, lng: 5 },
+{ lat: 43, lng: 23 },
+{ lat: 52, lng: 4 },
+{ lat: 59, lng: 27 },
+{ lat: 43, lng: 10 },
+{ lat: 31, lng: 120 },
+{ lat: -20, lng: 116 },
+{ lat: 43, lng: 5 },
+{ lat: 34, lng: 25 },
+{ lat: 1, lng: 103 },
+{ lat: 48, lng: -125 },
+{ lat: 23, lng: 119 },
+{ lat: 37, lng: 0 },
+{ lat: 48, lng: 2 },
+{ lat: 35, lng: -5 },
+{ lat: 26, lng: -80 },
+{ lat: 31, lng: 32 },
+{ lat: 51, lng: 3 },
+{ lat: 37, lng: 120 },
+{ lat: -7, lng: 112 },
+{ lat: 22, lng: 114 },
+{ lat: 38, lng: 14 },
+{ lat: 33, lng: -118 },
+{ lat: 50, lng: 6 },
+{ lat: 51, lng: 4 },
+{ lat: 46, lng: 30 },
+{ lat: 34, lng: 136 },
+{ lat: 50, lng: -1 },
+{ lat: 53, lng: 0 },
+{ lat: 51, lng: 4 },
+{ lat: 55, lng: -3 },
+{ lat: 52, lng: 5 },
+{ lat: 40, lng: 14 },
+{ lat: 53, lng: 5 },
+{ lat: 41, lng: -72 },
+{ lat: 34, lng: 135 },
+{ lat: 50, lng: 0 },
+{ lat: 34, lng: 132 },
+{ lat: 51, lng: 6 },
+{ lat: 51, lng: 6 },
+{ lat: 37, lng: -122 },
+{ lat: 24, lng: 118 },
+{ lat: 31, lng: 121 },
+{ lat: 34, lng: 132 },
+{ lat: 21, lng: 110 },
+{ lat: 33, lng: -118 },
+{ lat: 40, lng: 13 },
+{ lat: 40, lng: 13 },
+{ lat: 29, lng: -92 },
+{ lat: 1, lng: 103 },
+{ lat: 39, lng: -75 },
+{ lat: 30, lng: 121 },
+{ lat: 51, lng: -5 },
+{ lat: 43, lng: -7 },
+{ lat: 47, lng: 19 },
+{ lat: 57, lng: 11 },
+{ lat: 21, lng: 110 },
+{ lat: 31, lng: 120 },
+{ lat: 34, lng: 134 },
+{ lat: 50, lng: -1 },
+{ lat: 50, lng: -3 },
+{ lat: 53, lng: 7 },
+{ lat: 22, lng: 114 },
+{ lat: -32, lng: 152 },
+{ lat: 48, lng: -4 },
+{ lat: 58, lng: 6 },
+{ lat: 38, lng: 1 },
+{ lat: 41, lng: 141 },
+{ lat: 1, lng: 103 },
+{ lat: 38, lng: 15 },
+{ lat: 29, lng: -90 },
+{ lat: 37, lng: 23 },
+{ lat: 45, lng: -84 },
+{ lat: 33, lng: 134 },
+{ lat: 47, lng: -2 },
+{ lat: 43, lng: -2 },
+{ lat: 47, lng: 19 },
+{ lat: -19, lng: 118 },
+{ lat: 33, lng: 132 },
+{ lat: 34, lng: 138 },
+{ lat: 55, lng: -4 },
+{ lat: 1, lng: 103 },
+{ lat: 58, lng: 9 },
+{ lat: 50, lng: -3 },
+{ lat: 31, lng: 121 },
+{ lat: 52, lng: 2 },
+{ lat: 36, lng: 25 },
+{ lat: -5, lng: 11 },
+{ lat: 54, lng: -130 },
+{ lat: 34, lng: 132 },
+{ lat: 51, lng: 4 },
+{ lat: 51, lng: 3 },
+{ lat: 34, lng: 132 },
+{ lat: 1, lng: 103 },
+{ lat: 50, lng: -1 },
+{ lat: 19, lng: -96 },
+{ lat: 49, lng: -122 },
+{ lat: 26, lng: -80 },
+{ lat: 22, lng: 114 },
+{ lat: 52, lng: 4 },
+{ lat: 67, lng: 14 },
+{ lat: 24, lng: -110 },
+{ lat: 29, lng: -90 },
+{ lat: 33, lng: -118 },
+{ lat: 51, lng: 1 }
+            ];
+
+            var contentString = '<div id="content"><div id="siteNotice"></div>' +
+                '<h1 id="firstHeading" class="firstHeading">GRETCHEN H</h1>' + '<div id="bodyContent">' + '<b>MMSI: 367098050<br>Flag: US<br>Lat: 47.5880012512207<br>Lon: -122.35299682617188' + '</div>' +
+                '</div>';
+
+            // Create a map object and specify the DOM element for display.
+            //var shipLocation = {lat: 31.34135, lng: 121.64690};
+
+            var lat = [];
+            var lng = [];
+            var l = flightPlanCoordinates.length - 1;
+
+            lat[0] = 35.001352;
+            lng[0] = -40.279068;
+            lat[1] = flightPlanCoordinates[l].lat;
+            lng[1] = flightPlanCoordinates[l].lng;
+
+
+            var shipLocation = { lat: lat[0], lng: lng[0] };
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: shipLocation,
+                zoom: 3
+            });
+
+
+        //     for (var i = 0; i <= flightPlanCoordinates.length; i++) {
+        //         var latLng = new google.maps.LatLng(flightPlanCoordinates[i].lat, flightPlanCoordinates[i].lng);
+        //         shipMarker[i] = new google.maps.Marker({
+        //             position: latLng,
+        //             draggable: true,
+        //   animation: google.maps.Animation.DROP,
+        //             map: map
+        //         });
+        //     };
+
+                var heatMap = new google.maps.visualization.HeatmapLayer(
+                {
+                    data: getData(),
+                    radius: 50,
+                    map: map
+                }
+            );
+
+                heatMap.set(heatMap.getMap());
+
+            var lineSymbol = {
+                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
+            };
+
+            // flightPath = new google.maps.Polyline({
+            //     path: flightPlanCoordinates,
+            //     geodesic: true,
+            //     strokeColor: '#FF0000',
+            //     strokeOpacity: 1.0,
+            //     strokeWeight: 2,
+            //     icons: [{
+            //         icon: lineSymbol,
+            //         offset: '100%'
+            //     },
+            //     {
+            //         icon: lineSymbol,
+            //         offset: '80%'
+            //     },
+            //     {
+            //         icon: lineSymbol,
+            //         offset: '60%'
+            //     },
+            //     {
+            //         icon: lineSymbol,
+            //         offset: '40%'
+            //     },
+            //     {
+            //         icon: lineSymbol,
+            //         offset: '20%'
+            //     },
+            //     {
+            //         icon: lineSymbol,
+            //         offset: '0%'
+            //     }]
+            // });
+
+
+            // flightPath.setMap(map);
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            for(var i = 0; i < shipMarker.length; i++)
+                shipMarker[i].addListener('click', function () {
+                    showInfo();
+                });
+
+            flightPath.addListener('click', function () {
+                showInfo();
+            });
+
+
+            //     map.data.loadGeoJson('//Users/doncaouette/Google Drive/UMASSD/Fall 2017/498 Senior Design/CIS 498 - AIS Data Archiver/Extreme Programming/Code files/google.json');
+        }
+
+        function togglePath() {
+            var opacity = flightPath.get('strokeOpacity');
+
+            if (opacity != 0)
+                flightPath.set('strokeOpacity', 0);
+            else
+                flightPath.set('strokeOpacity', 1);
+        }
+
+        function toggleMarkers() {
+
+            for (var i = 0; i < shipMarker.length; i++) {
+                var opacity = shipMarker[i].get('opacity');
+
+                if (opacity != 0)
+                    shipMarker[i].set('opacity', 0);
+                else
+                    shipMarker[i].set('opacity', 1);
+            }
+        }
+
+        function showInfo() {
+            document.getElementById("panel2").style.visibility = "visible";
+        }
+
+        function hideInfo() {
+            document.getElementById("panel2").style.visibility = "hidden";
+        }
+
+        function getData()
+        {
+            var data = [];
+            for(var i = 0; i<flightPlanCoordinates.length;i++)
+                data[i] = new google.maps.LatLng(flightPlanCoordinates[i].lat, flightPlanCoordinates[i].lng);
+
+                return data;
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXTzk4v-E9NyJvPq9EPzrG6-wHcgJOCLc&libraries=visualization&callback=initMap" async
+        defer></script>
+</body>
+
+</html>

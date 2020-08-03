@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- This stylesheet contains specific styles for displaying the map
+         on this page. Replace it with your own styles as described in the
+         documentation:
+         https://developers.google.com/maps/documentation/javascript/tutorial -->
+         <style>
+            #map {
+              height: 100%;
+            }
+            html, body {
+              height: 100%;
+              margin: 0;
+              padding: 0;
+            }
+          </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+        
+      function initMap() {
+          var flightPlanCoordinates = [

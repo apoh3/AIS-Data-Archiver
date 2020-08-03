@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- This stylesheet contains specific styles for displaying the map
+         on this page. Replace it with your own styles as described in the
+         documentation:
+         https://developers.google.com/maps/documentation/javascript/tutorial -->
+         <style>
+            #map {
+              height: 100%;
+            }
+            html, body {
+              height: 100%;
+              margin: 0;
+              padding: 0;
+            }
+          </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+        
+      function initMap() {
+          var view = {lat: 9.021735, lng: -76.701599};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: view,
+          zoom: 4
+        });
+            }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXTzk4v-E9NyJvPq9EPzrG6-wHcgJOCLc&callback=initMap"
+    async defer></script>
+  </body>
+</html>
