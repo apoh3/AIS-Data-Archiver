@@ -1,0 +1,88 @@
+/* 
+ * Styles for EditNode.java
+ * id's correspond to variable names in EditNode
+ */
+
+#topLabel, #bottomLabel, #heading { 
+	-fx-font-size: 20px; 
+	-fx-font-weight: bold; 
+}
+
+#heading {
+	-fx-padding: 20px;
+}
+
+#leftVb {
+    -fx-padding: 10px;
+}
+
+#orSearchTxt {
+	-fx-font-size: 14px;
+}
+
+#searVb1, #searVb2, #saveBtnVBAdd, #saveBtnVBEdit, #del1BtnVB {
+    -fx-alignment: center;
+    -fx-pref-width: 150px;
+    -fx-padding: 7;-fx-font-weight: bold; 
+}
+
+#bottomVb {
+    -fx-alignment: center;
+    -fx-pref-width: 150px;
+}
+
+#allCheckVBs {
+	-fx-alignment: center;
+}
+
+#checkVb ComboBox, #checkVb DatePicker {
+	-fx-pref-width: 175px;
+	-fx-font-weight: bold; 
+}
+
+#editDBtn, #saveBtnAdd, #saveBtnEdit, #delBtn1 {
+	-fx-pref-width: 150px;
+	-fx-font-weight: bold; 
+}
+
+#addBtn, #delBtn {
+	-fx-pref-width: 180px;
+	-fx-pref-height: 350px;
+	-fx-background-color: WHITE;
+    -fx-effect: dropshadow(three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+}
+
+#editBtn {
+	-fx-pref-width: 180px;
+	-fx-pref-height: 350px;
+	-fx-background-color: #4286f4;
+    -fx-effect: dropshadow(three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+}
+
+#loadRefVb {
+    -fx-alignment: center;
+    -fx-padding: 10px;
+    -fx-font-weight: bold; 
+}
+		  
+#rightVb {
+	-fx-alignment: center;
+}
+
+#loadRefVb #loadBtn, #loadRefVb #refreshBtn, 
+#searVb1 #searBtn1, #searVb2 #searBtn2, 
+#saveBtnVBAdd #saveBtnAdd, #saveBtnVBEdit #saveBtnEdit,
+#del1BtnVB #delBtn1 {
+	-fx-pref-width: 150px;
+	-fx-font-weight: bold; 
+}
+
+.promptTxt {
+ 	-fx-font-size: 14px;
+}
+
+#inexBtn {
+	-fx-background-color: transparent;
+	-fx-effect: none;
+}
+

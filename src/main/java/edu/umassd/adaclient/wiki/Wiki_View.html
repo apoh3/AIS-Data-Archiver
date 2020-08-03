@@ -1,0 +1,56 @@
+<!-- 
+     Wiki Page -- Viewing Data: Inside WebView of HelpInterface 
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="Wiki_styles.css">
+	</head>
+
+	<body>	
+		<button onclick="goBack()"> &larr; </button>	
+		
+		<script>
+			function goBack() {
+			    window.history.back();
+			}
+		</script>
+		
+		<div class="content">
+			<h3>Viewing Data</h3>
+			
+			<h4>With the AIS Data Archiver, you can:</h4>
+			<ul class="square">				
+				<li>view data for a specific MMSI number</li>
+				<li>view a sample of data associated with selected parameters on the Locate Page</li>
+				<li>visually view data on a world map, including historical trackings, on the Locate Page</li>
+				<li>view all data associated with selected parameters on the Edit Page</li>
+			</ul>	
+			
+			<hr>
+			
+			<h4>How to Select Parameters for Viewing</h4>
+			<ol>				
+				<li>To search for a ship associated with a specific MMSI number, type the number in the text field
+				that says "enter mmsi". Then click the Search Button. (This can be done in the Locate and Edit Pages.)</li>
+				<li>To search for ships associated with certain parameters, click the arrow of the dropdown box for the
+				parameter(s) you wish to search for. (For "last report date", click the grey box to the right of the text 
+				field. Select a date on the calendar, or type a date in the format mm/dd/yyyy.) Once all parameters are 
+				selected, click the Search Button.</li>
+			</ol>
+			
+			<hr>
+			
+			<h4>How to Visually View Data</h4>
+			<ol>
+				<li>After clicking the Search Button, double click on a ship in the table of data (bottom left corner of
+				the Locate Page).</li>
+				<li>The table will display the trackings of the selected ship, and the map representation will update
+				to pin the location(s) of the ship.</li>
+			</ol>		
+		</div>
+		
+	</body>
+	
+</html>

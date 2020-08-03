@@ -1,0 +1,21 @@
+
+#label {
+	-fx-font-size: 22px;
+	-fx-padding: 20;
+	-fx-font-weight: bold;
+}
+
+#table .column-header-background {
+    -fx-max-height: 0;
+    -fx-pref-height: 0;
+    -fx-min-height: 0;
+}
+
+#table .table-row-cell {
+	-fx-table-cell-border-color: transparent;
+}
+
+Button {
+	-fx-pref-width: 100px;
+	-fx-font-weight: bold;
+}

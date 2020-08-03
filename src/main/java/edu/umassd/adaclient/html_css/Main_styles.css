@@ -1,0 +1,11 @@
+#locateBtn, #editBtn, #statsBtn, #helpBtn {
+	-fx-font-weight: bold;
+	-fx-font-size: 12px; 
+	-fx-pref-width: 60px;
+	-fx-background-color: transparent;
+}
+
+#locateBtn:hover, #editBtn:hover, #statsBtn:hover, #helpBtn:hover {
+	-fx-background-color: rgb(235,235,235);
+}
+

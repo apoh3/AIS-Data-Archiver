@@ -1,0 +1,36 @@
+/*
+ * Line Chart for ADA
+ * Jan 30, 2018
+ */
+
+
+#label { 
+	-fx-font-size: 20px; 
+	-fx-font-weight: bold; 
+}
+
+#rootbox {
+	-fx-padding: 10px;
+}
+
+LineChart { 
+	-fx-font-weight: bold; 
+}
+
+TextField, DatePicker, ComboBox {
+	-fx-pref-width: 100px;
+}
+
+#mmsiBtn {
+	-fx-pref-width: 40px;
+}
+
+#clearBtn {
+	-fx-pref-width: 50px;
+}
+
+NumberAxis {
+	-fx-font-size: 14px; 
+}		
+
+

@@ -1,0 +1,109 @@
+/*
+ * Line Chart for ADA
+ * Jan 30, 2018
+ */
+
+
+#label { 
+	-fx-font-size: 20px; 
+	-fx-font-weight: bold; 
+}
+
+#topVb {
+    -fx-padding: 10px;
+}
+
+#orSearchTxt {
+	-fx-font-size: 14px;
+}
+
+#searVb {
+    -fx-alignment: center;
+    -fx-pref-width: 150px;
+    -fx-padding: 7;
+}
+
+#searVb #searBtn  {
+	-fx-pref-width: 150px;
+	-fx-font-weight: bold; 
+}
+
+#rightVb {
+	-fx-padding: 20px;
+	-fx-background-color: WHITE;
+}
+
+#topHbL {
+	-fx-pref-width: 1000px;
+	-fx-min-width: 400px;
+	-fx-pref-height: 1000px;
+	-fx-border-color: rgb(200, 200, 200);
+}
+
+#topVbR {
+	-fx-pref-width: 700px;
+	-fx-min-width: 100px;
+	-fx-pref-height: 1000px;
+	-fx-border-color: rgb(200, 200, 200);
+	-fx-padding: 10px;
+}
+
+#bottomVb {
+	-fx-padding: 20px;
+}
+
+#bottomHb {
+	-fx-pref-height: 1000px;
+	-fx-border-color: rgb(200, 200, 200);
+}
+
+/***************SPEED COMPARISON CHART****************/
+LineChart {
+	-fx-font-weight: bold; 
+}
+
+#xaxis, #yaxis {
+	-fx-font-size: 14px; 
+}	
+
+.default-color0.chart-series-line { 
+	-fx-stroke: #b20c0c;   /*red*/
+	-fx-stroke-width: 5
+
+} 
+
+.default-color1.chart-series-line {
+	-fx-stroke: #082656;   /*navy*/ 
+	-fx-stroke-width: 5
+} 
+
+.default-color0.chart-line-symbol, .default-color1.chart-line-symbol { 
+	-fx-background-color: transparent; 
+}	
+
+/************************STATS***********************/
+#ship1 {
+	-fx-text-fill: #b20c0c;   /*red*/
+	-fx-font-weight: bold; 
+	-fx-font-size: 16px;
+}
+
+#ship2 {
+	-fx-text-fill: #082656;   /*navy*/ 
+	-fx-font-weight: bold; 
+	-fx-font-size: 16px;
+}
+
+GridPane {
+	-fx-padding: 0, 10, 10, 10;
+	-fx-font-size: 14px;
+}
+
+
+
+
+
+
+
+
+

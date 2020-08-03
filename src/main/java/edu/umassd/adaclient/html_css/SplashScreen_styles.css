@@ -1,0 +1,20 @@
+
+.root {
+	-fx-background-image: url("/edu/umassd/img/splashpage.png");
+	/* source: http://clipart-library.com/clipart/8i6RyAMiE.htm  (Free Vector Water #1277103) */
+}
+
+Label {
+	-fx-text-fill: WHITE;
+}
+
+#loadingTxt {
+	-fx-font-weight: bold;
+}	
+
+#title {
+	-fx-font-weight: bold;
+	-fx-font-size: 20px;
+	-fx-font-family: "Arial Black", Gadget, sans-serif;
+	-fx-padding: 20px;
+}

@@ -1,0 +1,56 @@
+/* 
+ * Styles for ViewNode.java
+ * id's correspond to variable names in ViewNode
+ */
+
+#leftPLabel { 
+	-fx-font-size: 20px; 
+	-fx-font-weight: bold; 
+}
+
+#topVb {
+    -fx-padding: 10px;
+}
+
+#orSearchTxt {
+	-fx-font-size: 14px;
+}
+
+#searVb1, #searVb2 {
+    -fx-alignment: center;
+    -fx-pref-width: 150px;
+    -fx-padding: 7;
+    -fx-font-weight: bold; 
+}
+
+#refreshBtn {
+	-fx-margin: 0 10 0 0;
+	-fx-font-weight: bold; 
+}
+
+#loadRefVb {
+    -fx-alignment: center;
+}
+
+#checkVb ComboBox {
+	-fx-pref-width: 175px;
+	-fx-font-weight: bold; 
+}
+		  
+#bottomVb {
+    -fx-alignment: center;
+    -fx-padding: 10px;
+}
+
+#searVb1 #searBtn1, #searVb2 #searBtn2 {
+	-fx-pref-width: 150px;
+	-fx-font-weight: bold; 
+}
+
+#loadRefVb #loadBtn, #loadRefVb #refreshBtn {
+	-fx-pref-width: 100px;
+	-fx-font-weight: bold; 
+}
+
+
+

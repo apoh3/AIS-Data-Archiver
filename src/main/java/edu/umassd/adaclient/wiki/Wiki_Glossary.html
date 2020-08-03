@@ -1,0 +1,59 @@
+<!-- 
+     Wiki Page -- Glossary: Inside WebView of HelpInterface 
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="Wiki_styles.css">
+	</head>
+
+	<body>	
+		<button onclick="goBack()"> &larr; </button>	
+		
+		<script>
+			function goBack() {
+			    window.history.back();
+			}
+		</script>
+		
+		<div class="content">
+			<h3>Viewing Data</h3>
+			
+			<h4>The AIS Data Archiver displays the following data:</h4>
+			<ul class="square">				
+				<li>ship name</li>
+				<li>MMSI (Maritime Mobile Service Identity)</li>
+				<li>flag</li>
+				<li>latitude</li>
+				<li>longitude</li>
+				<li>speed</li>
+				<li>heading</li>
+				<li>course</li>
+				<li>destination</li>
+				<li>length</li>
+				<li>width</li>
+				<li>draught</li>
+				<li>call sign</li>
+				<li>IMO (International Maritime Organization) number</li>
+				<li>last report date</li>
+				<li>last report time</li>
+			</ul>	
+			
+			<hr>
+			<h4>Location Parameter</h4>
+			<ul>
+				<li>North: latitude > 0</li>
+				<li>South: latitude < 0</li>
+				<li>East: longitude > 0</li>
+				<li>West: longitude < 0</li>
+				<li>NorthEast: latitude and longitude > 0</li>
+				<li>NorthWest: latitude > 0 and longitude < 0</li>
+				<li>SouthEast: latitude < 0 and longitude > 0</li>
+				<li>SouthWest: latitude and longitude < 0</li>
+			</ul>			
+		</div>
+		
+	</body>
+	
+</html>

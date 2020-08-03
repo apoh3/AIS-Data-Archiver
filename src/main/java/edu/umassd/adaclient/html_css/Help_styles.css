@@ -1,0 +1,44 @@
+
+
+Label {
+	-fx-font-size: 22px;
+	-fx-padding: 20;
+	-fx-font-weight: bold;
+}
+
+Button {
+ 	-fx-pref-width: 10000;
+ 	-fx-pref-height: 10000;
+ 	-fx-background-color: WHITE;
+    -fx-effect: dropshadow(three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+}
+
+#backBtn {
+	-fx-pref-width: 125;
+ 	-fx-pref-height: 40;
+ 	-fx-background-color: TRANSPARENT;
+ 	-fx-font-weight: bold;
+ 	-fx-font-size: 14px;
+ 	-fx-effect: none;
+}
+
+Text {
+	-fx-font-size: 12px;
+	-fx-font-weight: bold;
+}
+
+
+.titled-pane {
+	-fx-font-size: 14px;
+	-fx-text-fill: BLACK;
+}
+
+.titled-pane > .title {
+	-fx-font-size: 14px;
+	-fx-font-weight: bold; 
+}
+
+.titled-pane:collapsed > .title > .arrow-button .arrow {
+	-fx-rotate: -90;
+}
+
